@@ -1,0 +1,56 @@
+Question,Answer,Type,Standard
+" For neural networks, which item has the greatest impact on overfitting and underfitting.【OPTIONS】
+
+    A. Number of hidden nodes
+    B. learning rate (learning rate)
+    C. initial weight
+    D. The number of inputs for each training is fixed",A,choice-question,80
+"Which of the following introduces nonlinearity in neural networks?【OPTIONS】
+    A. Stochastic gradient descent
+
+    B. Modified linear unit (ReLU)
+
+    C. Convolution function
+
+    D. None of the above",B,choice-question,
+"If the number of hidden layers of the Multilayer Perceptron is increased, the classification error of the test set will be reduced. Is this statement true or false?【OPTIONS】
+
+    A.True
+
+    B.False",B,choice-question,
+"Y = ax^2 + bx + c (quadratic polynomial)
+ Can this equation be represented by a neural network with a single hidden layer with a linear threshold?【OPTIONS】
+
+    A. Yes
+
+    B. No",B,choice-question,
+"For image recognition problems (such as recognizing cats in photos), what kind of problems is the neural network model structure more suitable for solving?【OPTIONS】
+
+    A. Multilayer perceptron
+
+    B. Recurrent neural network
+
+    C. Convolutional Neural Network
+
+    D. Perceptron",C,choice-question,
+"Which of the following operations achieves a similar effect to Dropout in neural networks?【OPTIONS】
+
+    A. Bagging
+    B. Boosting
+    C. Stacking
+    D. None of the above",A,choice-question,
+"When training CNN, the input can be preprocessed such as rotation, translation, and scaling to improve the generalization ability of the model. 【OPTIONS】Is that    A. right or     B.wrong?",A,choice-question,
+"Which of the following algorithms can be constructed with neural networks:
+
+    1. KNN
+    2. Linear regression
+    3. Log odds regression
+【OPTIONS】
+     A. 1 and 2
+
+    B. 2 and 3
+
+    C. 1, 2 and 3
+
+    D. None of the above",B,choice-question,
+What do you understand by backpropagation?(No fewer than four words ),Backpropagation is a technique to improve the performance of the network. It backpropagates the error and updates the weights to reduce the error.,short-answer,

@@ -1,0 +1,14 @@
+Question,Answer,Type,Standard
+"Which of the following techniques can be used for keyword normalization (keyword normalization), that is, to transform keywords into their basic form? 1. Lemmatization 2.Levenshtein 3. Stemming 4. Soundex 【OPTIONS：】A. 1 and 2    B. 2 and 4    C. 1 and 3    D. 1, 2 and 3    E. 2, 3 and 4    F. 1, 2, 3 and 4",C,choice question,70
+"You have collected 10,000 lines of Twitter text data and have no other information. You want to create a tweet classification model, you can divide each tweet into three categories: positive, negative, and neutral.
+Which of the following models can perform the Twitter classification problem mentioned in the background of the problem? 【OPTIONS】 A. Naive Bayes    B. Support Vector Machine    C. None of the above",C,choice question,
+"Which of the following features can be used to improve the accuracy of the classification model?
+【OPTIONS】 A. Word frequency count   B. Vector notation of statement   C. Voice tag part   D. Dependency syntax E. All of the above",E,choice question,
+"You have collected 10,000 lines of Twitter text data and have no other information. You want to create a tweet classification model, you can divide each tweet into three categories: positive, negative, and neutral.
+Which of the following models can perform the Twitter classification problem mentioned in the background of the problem? 【OPTIONS】 A. Naive Bayes B. Support Vector Machine C. None of the above",C,choice question,
+"In a corpus containing N documents, a document is randomly selected. The file contains a total of T words, and the term ""data"" appears K times. If the term ""data"" appears in close to one third of the total number of documents, what is the correct value of the product of TF (term frequency) and IDF (inverse document frequency)?【OPTIONS】  A. KT * Log(3)
+    B. K * Log(3) / T     C. T * Log(3) / K    D. Log(3) / KT",B,choice question,
+True or false: The Word2vec model is a machine learning model used to create vector tags for text objects. Word2vec contains multiple deep neural networks 【OPTIONS】 A. True    B. False,B,choice question,
+Ambiguity can be defined as the coexistence of multiple meanings of a word or phrase in a text object. Which of the following methods may be the best choice to solve this problem?【OPTIONS】  A. Random forest classifier    B. Convolutional neural network    C. Gradient explosion    D. All the above methods,B,choice question,
+Which of the following methods is not part of flexible text matching?【OPTIONS】 A. String voice representation (Soundex) B. Voice utterance hash (Metaphone) C. Edit Distance Algorithm (Edit Distance) D. Keyword Hashing,D,choice question,
+Please briefly describe several familiar classification algorithms(the answer appears to be no fewer than four),"kNN(K-Nearest Neighbours), decision tree, random forest, Logistic Regression,",short-answer,

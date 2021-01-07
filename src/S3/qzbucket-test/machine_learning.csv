@@ -1,0 +1,64 @@
+Question,Answer,Type,Standard
+"What is wrong with the following statement?
+【OPTIONS】
+    A. When the objective function is convex, the solution of the gradient descent algorithm is generally the global optimal solution
+
+    B. When performing PCA dimensionality reduction, the covariance matrix needs to be calculated
+
+    C. The direction along the negative gradient must be the optimal direction
+
+    D. Use Lagrange function to solve optimization problems with constraints",C,choice question,75
+"Under the premise that other conditions remain the same, which of the following methods is likely to cause overfitting in machine learning?
+【OPTIONS】
+    A. Increase the amount of training set
+
+    B. Reduce the number of hidden layer nodes in the neural network
+
+    C. delete sparse features
+
+    D. SVM algorithm uses Gaussian kernel/RBF kernel instead of linear kernel",D,choice question,
+"Regarding Logistic regression and SVM, what is wrong in the following statement?
+【OPTIONS】
+     A. Logistic regression can be used to predict the probability of occurrence of an event
+
+     B. The objective function of logistic regression is to minimize the posterior probability
+
+     C. The goal of SVM is to minimize structural risks
+
+     D. SVM can add regularization items to effectively avoid model overfitting",B,choice question,
+"Suppose you have 5 convolution kernels with a size of 7x7, a boundary value (Padding) of 0, and a step size (S) of 1. At this time, if you pass in a dimension of 224x224x3 data to this layer, what is the dimension of the data received by the next layer of the neural network?
+    A. 220x220x5
+
+    B. 218x218x5
+
+    C. 217x217x8
+
+    D. 217x217x3",B,choice question,
+"Which of the following optimization methods is the least sensitive to hyperparameters?   【OPTIONS】                            
+    A. SGD (stochatic gradient descent)
+
+    B. BGD (batch gradient descent)
+
+    C. Adadetla
+
+    D. Momentum",C,choice question,
+"For polynomial regression, which one has the greatest influence on overfitting and underfitting.
+【OPTIONS】
+    A. polynomial degree
+    B. Whether to inverse/gradient descent learning weight through matrix
+    C. Gaussian noise variance (variance of the Gaussian noise)
+    D. The number of inputs for each training is fixed",A,choice question,
+"In the data processing stage, the normalization or standardization of numerical features will theoretically not have a great impact on which model.【OPTIONS】
+    A. KNN
+    B. k-means
+    C. decision tree",C,choice question,
+"In an n-dimensional space, the best way to detect outliers (outliers) is:
+【OPTIONS】
+    A. Make a normal distribution probability plot
+
+    B. Make a box plot
+
+    C. Mahalanobis distance
+
+    D. Make a scatter plot",C,choice question,
+Provide some methods to prevent overfitting(the answer appears to be no fewer than four),"train with more data, cross validation, regularization, early stopping, ensembling",short-answer,
