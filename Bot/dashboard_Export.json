@@ -1,1 +1,809 @@
-
+{
+  "metadata": {
+    "schemaVersion": "1.0",
+    "importType": "LEX",
+    "importFormat": "JSON"
+  },
+  "resource": {
+    "name": "dashboard",
+    "version": "14",
+    "intents": [
+      {
+        "name": "GetDefinition",
+        "version": "32",
+        "fulfillmentActivity": {
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:468412006895:function:getDefinition",
+            "messageVersion": "1.0"
+          },
+          "type": "CodeHook"
+        },
+        "sampleUtterances": [
+          "what is the meaning of {term}",
+          "tell me about {term}"
+        ],
+        "slots": [
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.BookSeries",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Which term?"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 1,
+            "name": "term"
+          }
+        ]
+      },
+      {
+        "name": "FAQs",
+        "version": "17",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "help",
+          "what can you do for me",
+          "can you help me",
+          "what can i do next",
+          "I want to change the service",
+          "service"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "PlainText",
+              "content": "Hi! Nice to see you. I am your online assistant. Here are a few examples of what you could say: ' I want to book an online course.' 'Cancel my order.' 'My order list'. Other services are also provided, here are some examples 'Get definition', 'Take a placement test.'"
+            }
+          ]
+        }
+      },
+      {
+        "name": "closeIntent",
+        "version": "8",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "exit this dialog",
+          "stop this topic",
+          "Quit this talk",
+          "change topic"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "PlainText",
+              "content": "What do you want to do next?"
+            },
+            {
+              "groupNumber": 1,
+              "contentType": "PlainText",
+              "content": "What can I help you?"
+            },
+            {
+              "groupNumber": 1,
+              "contentType": "PlainText",
+              "content": "Okay, anytime!"
+            }
+          ]
+        }
+      },
+      {
+        "name": "CancelModule",
+        "version": "7",
+        "fulfillmentActivity": {
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:468412006895:function:getCancel",
+            "messageVersion": "1.0"
+          },
+          "type": "CodeHook"
+        },
+        "sampleUtterances": [
+          "cancel",
+          "cancel courses",
+          "cancel order",
+          "cancel my order",
+          "I would like to cancel my order",
+          "I want to apply for canceling my order"
+        ],
+        "slots": [
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.Organization",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Please provide your order code:"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 4,
+            "name": "orderid"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.FOUR_DIGIT_NUMBER",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Please provide your OTP code:"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 3,
+            "name": "password"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.EmailAddress",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Please provide your email address:"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 2,
+            "name": "useremail"
+          }
+        ]
+      },
+      {
+        "name": "Greeting",
+        "version": "30",
+        "fulfillmentActivity": {
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:468412006895:function:newUser",
+            "messageVersion": "1.0"
+          },
+          "type": "CodeHook"
+        },
+        "sampleUtterances": [
+          "I am a new user",
+          "new user",
+          "Register an account",
+          "sign up",
+          "I want to create an account",
+          "create an account"
+        ],
+        "slots": [
+          {
+            "sampleUtterances": [],
+            "slotType": "GreetingsType",
+            "slotTypeVersion": "1",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Hey here! I am your online assistant."
+                }
+              ],
+              "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"title\":\"Have you come to register before?\",\"buttons\":[{\"text\":\"Yes\",\"value\":\"yes\"},{\"text\":\"No\",\"value\":\"no\"}]}]}",
+              "maxAttempts": 2
+            },
+            "priority": 2,
+            "name": "greetingsIntent"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.FOUR_DIGIT_NUMBER",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Please enter the verification code which has been sent to your email address if you would like to have further service:"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 5,
+            "name": "password"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.EmailAddress",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "And what is your email address?"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 4,
+            "name": "useremail"
+          },
+          {
+            "sampleUtterances": [
+              "My name is {username}",
+              "my name {username}"
+            ],
+            "slotType": "AMAZON.Person",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Could you tell me your name?"
+                }
+              ],
+              "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\"}",
+              "maxAttempts": 2
+            },
+            "priority": 3,
+            "name": "username"
+          }
+        ]
+      },
+      {
+        "name": "BookModule",
+        "version": "58",
+        "fulfillmentActivity": {
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:468412006895:function:getModule",
+            "messageVersion": "1.0"
+          },
+          "type": "CodeHook"
+        },
+        "sampleUtterances": [
+          "I would like to book {modulename}",
+          "I would like to choose {modulename}",
+          "book {modulename}",
+          "attend {modulename}",
+          "join in {modulename}",
+          "I would like to  take {modulename}",
+          "book",
+          "module",
+          "book {modulename} in the level of {moduletype}",
+          "book {modulename} {moduletype}",
+          "i would like buy an online course",
+          "I would like to book a course",
+          "book course"
+        ],
+        "slots": [
+          {
+            "sampleUtterances": [],
+            "slotType": "ModuleName",
+            "slotTypeVersion": "2",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Which module do you want to choose?"
+                }
+              ],
+              "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"subTitle\":\"Swipe left/right for more options.\",\"title\":\"Which module do you want to choose?\",\"buttons\":[{\"text\":\"Deep Learning\",\"value\":\"deep learning\"},{\"text\":\"Machine Learning\",\"value\":\"machine learning\"},{\"text\":\"Data Analysis\",\"value\":\"data analysis\"}]},{\"subTitle\":\"Swipe left/right for more options.\",\"title\":\"Which module do you want to choose?\",\"buttons\":[{\"text\":\"NLP\",\"value\":\"nlp\"}]}]}",
+              "maxAttempts": 2
+            },
+            "priority": 6,
+            "name": "modulename"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "ModuleType",
+            "slotTypeVersion": "2",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "What level of course is it?"
+                }
+              ],
+              "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"title\":\"What level of course is it?\",\"buttons\":[{\"text\":\"Primer\",\"value\":\"primer\"},{\"text\":\"Advanced\",\"value\":\"advanced\"}]}]}",
+              "maxAttempts": 2
+            },
+            "priority": 7,
+            "name": "moduletype"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.FOUR_DIGIT_NUMBER",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Please enter OTP code sent to your email address:"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 5,
+            "name": "password"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.EmailAddress",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Please provide an email account:"
+                }
+              ],
+              "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\"}",
+              "maxAttempts": 2
+            },
+            "priority": 3,
+            "name": "useremail"
+          }
+        ]
+      },
+      {
+        "name": "AllocatedModule",
+        "version": "74",
+        "fulfillmentActivity": {
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:468412006895:function:mytest",
+            "messageVersion": "1.0"
+          },
+          "type": "CodeHook"
+        },
+        "sampleUtterances": [
+          "I would like to have a test",
+          "placement test",
+          "quizzes",
+          "quiz",
+          "have a test"
+        ],
+        "slots": [
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.Book",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Q8"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 9,
+            "name": "eighthA"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.Book",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Q5"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 6,
+            "name": "fifthA"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.Book",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Q1"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 2,
+            "name": "firstA"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.Book",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Q4"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 5,
+            "name": "fourthA"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "ModuleName",
+            "slotTypeVersion": "2",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Which module?"
+                }
+              ],
+              "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"subTitle\":\"Swipe left/right for more options.\",\"title\":\"Part1: Which module?\",\"buttons\":[{\"text\":\"Deep Learning\",\"value\":\"deep learning\"},{\"text\":\"Machine Learning\",\"value\":\"machine learning\"},{\"text\":\"Data Analysis\",\"value\":\"data analysis\"}]},{\"subTitle\":\"Swipe left/right for more options.\",\"title\":\"Part1: Which module?\",\"buttons\":[{\"text\":\"NLP\",\"value\":\"nlp\"}]}]}",
+              "maxAttempts": 1
+            },
+            "priority": 1,
+            "name": "modulename"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.Book",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Q9"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 10,
+            "name": "ninthA"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.Book",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Q2"
+                }
+              ],
+              "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[]}",
+              "maxAttempts": 2
+            },
+            "priority": 3,
+            "name": "secondA"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.Book",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Q7"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 8,
+            "name": "seventhA"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.Book",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Q6"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 7,
+            "name": "sixthA"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "PlacementTest",
+            "slotTypeVersion": "2",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Q10"
+                }
+              ],
+              "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[]}",
+              "maxAttempts": 2
+            },
+            "priority": 11,
+            "name": "tenthA"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.Book",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Q3"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 4,
+            "name": "thirdA"
+          }
+        ]
+      },
+      {
+        "name": "CloseAccount",
+        "version": "2",
+        "fulfillmentActivity": {
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:468412006895:function:cancelAccount",
+            "messageVersion": "1.0"
+          },
+          "type": "CodeHook"
+        },
+        "sampleUtterances": [
+          "I would like to close my account",
+          "close my account",
+          "cancel my accout",
+          "I would like to cancel my account",
+          "I would like to delete my account",
+          "Apply for deleting my account"
+        ],
+        "slots": [
+          {
+            "sampleUtterances": [],
+            "slotType": "GreetingsType",
+            "slotTypeVersion": "1",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Hey here! I am your online assistant."
+                }
+              ],
+              "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"title\":\"Are you sure you want to cancel your account？\",\"buttons\":[{\"text\":\"Yes\",\"value\":\"yes\"},{\"text\":\"No\",\"value\":\"no\"}]}]}",
+              "maxAttempts": 2
+            },
+            "priority": 1,
+            "name": "cancelIntent"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.FOUR_DIGIT_NUMBER",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Please provide the verification code which is sent your email address:"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 3,
+            "name": "password"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.EmailAddress",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "What is your email account?"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 2,
+            "name": "useremail"
+          }
+        ]
+      },
+      {
+        "name": "UserOrder",
+        "version": "5",
+        "fulfillmentActivity": {
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:468412006895:function:myOrder",
+            "messageVersion": "1.0"
+          },
+          "type": "CodeHook"
+        },
+        "sampleUtterances": [
+          "my order",
+          "booking list",
+          "order inquriy"
+        ],
+        "slots": [
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.FOUR_DIGIT_NUMBER",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Optional",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Please enter the verification code which has been sent to your email address:"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 2,
+            "name": "password"
+          },
+          {
+            "sampleUtterances": [],
+            "slotType": "AMAZON.EmailAddress",
+            "obfuscationSetting": "NONE",
+            "slotConstraint": "Required",
+            "valueElicitationPrompt": {
+              "messages": [
+                {
+                  "contentType": "PlainText",
+                  "content": "Please provide an email account:"
+                }
+              ],
+              "maxAttempts": 2
+            },
+            "priority": 1,
+            "name": "useremail"
+          }
+        ]
+      }
+    ],
+    "slotTypes": [
+      {
+        "name": "PlacementTest",
+        "version": "2",
+        "enumerationValues": [
+          {
+            "value": "Answer"
+          },
+          {
+            "value": "Question"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      },
+      {
+        "description": "Available module type",
+        "name": "ModuleType",
+        "version": "2",
+        "enumerationValues": [
+          {
+            "value": "test"
+          },
+          {
+            "value": "advanced"
+          },
+          {
+            "value": "primer"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      },
+      {
+        "name": "GreetingsType",
+        "version": "1",
+        "enumerationValues": [
+          {
+            "value": "no"
+          },
+          {
+            "value": "yes"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      },
+      {
+        "name": "ModuleName",
+        "version": "2",
+        "enumerationValues": [
+          {
+            "value": "deep learning"
+          },
+          {
+            "value": "data analysis"
+          },
+          {
+            "value": "nlp"
+          },
+          {
+            "value": "test"
+          },
+          {
+            "value": "machine learning"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      }
+    ],
+    "voiceId": "Justin",
+    "childDirected": false,
+    "locale": "en-US",
+    "idleSessionTTLInSeconds": 300,
+    "clarificationPrompt": {
+      "messages": [
+        {
+          "contentType": "PlainText",
+          "content": "Hi, what can I do for you? Say 'Help' to have a try."
+        },
+        {
+          "contentType": "PlainText",
+          "content": "Nice to see you, what do you want to do next?"
+        }
+      ],
+      "maxAttempts": 3
+    },
+    "abortStatement": {
+      "messages": [
+        {
+          "contentType": "PlainText",
+          "content": "Sorry, I could not understand. You could say 'Help' to have a try."
+        },
+        {
+          "contentType": "PlainText",
+          "content": "Sorry, I could not understand. Please feel free to contact me, if you have some problems. 2384102107@qq.com"
+        }
+      ]
+    },
+    "detectSentiment": true,
+    "enableModelImprovements": false
+  }
+}
