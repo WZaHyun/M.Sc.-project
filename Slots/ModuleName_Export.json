@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "schemaVersion": "1.0",
+    "importType": "LEX",
+    "importFormat": "JSON"
+  },
+  "resource": {
+    "name": "ModuleName",
+    "version": "2",
+    "enumerationValues": [
+      {
+        "value": "deep learning"
+      },
+      {
+        "value": "data analysis"
+      },
+      {
+        "value": "nlp"
+      },
+      {
+        "value": "test"
+      },
+      {
+        "value": "machine learning"
+      }
+    ],
+    "valueSelectionStrategy": "ORIGINAL_VALUE"
+  }
+}

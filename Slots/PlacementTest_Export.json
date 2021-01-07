@@ -5,14 +5,14 @@
     "importFormat": "JSON"
   },
   "resource": {
-    "name": "GreetingsType",
-    "version": "1",
+    "name": "PlacementTest",
+    "version": "2",
     "enumerationValues": [
       {
-        "value": "no"
+        "value": "Answer"
       },
       {
-        "value": "yes"
+        "value": "Question"
       }
     ],
     "valueSelectionStrategy": "ORIGINAL_VALUE"

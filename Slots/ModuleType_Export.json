@@ -5,14 +5,18 @@
     "importFormat": "JSON"
   },
   "resource": {
-    "name": "GreetingsType",
-    "version": "1",
+    "description": "Available module type",
+    "name": "ModuleType",
+    "version": "2",
     "enumerationValues": [
       {
-        "value": "no"
+        "value": "test"
       },
       {
-        "value": "yes"
+        "value": "advanced"
+      },
+      {
+        "value": "primer"
       }
     ],
     "valueSelectionStrategy": "ORIGINAL_VALUE"
