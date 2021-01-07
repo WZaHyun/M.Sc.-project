@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
 Description: An AWS Serverless Specification template describing your function.
 Resources:
-  cancelAccount:
+  getCancel:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: lambda_function.lambda_handler
@@ -10,7 +10,7 @@ Resources:
       CodeUri: .
       Description: ''
       MemorySize: 128
-      Timeout: 8
+      Timeout: 10
       Role: 'arn:aws:iam::468412006895:role/LambdaDynamoDBRole'
       Events:
         DynamoDB1:
@@ -22,7 +22,30 @@ Resources:
                 - StreamArn
             StartingPosition: TRIM_HORIZON
             BatchSize: 100
+        DynamoDB2:
+          Type: DynamoDB
+          Properties:
+            Stream:
+              'Fn::GetAtt':
+                - Table2
+                - StreamArn
+            StartingPosition: TRIM_HORIZON
+            BatchSize: 100
   Table1:
+    Type: 'AWS::DynamoDB::Table'
+    Properties:
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+      StreamSpecification:
+        StreamViewType: NEW_IMAGE
+  Table2:
     Type: 'AWS::DynamoDB::Table'
     Properties:
       AttributeDefinitions:
