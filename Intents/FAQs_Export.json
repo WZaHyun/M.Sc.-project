@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "schemaVersion": "1.0",
+    "importType": "LEX",
+    "importFormat": "JSON"
+  },
+  "resource": {
+    "name": "FAQs",
+    "version": "17",
+    "fulfillmentActivity": {
+      "type": "ReturnIntent"
+    },
+    "sampleUtterances": [
+      "help",
+      "what can you do for me",
+      "can you help me",
+      "what can i do next",
+      "I want to change the service",
+      "service"
+    ],
+    "slots": [],
+    "conclusionStatement": {
+      "messages": [
+        {
+          "groupNumber": 1,
+          "contentType": "PlainText",
+          "content": "Hi! Nice to see you. I am your online assistant. Here are a few examples of what you could say: ' I want to book an online course.' 'Cancel my order.' 'My order list'. Other services are also provided, here are some examples 'Get definition', 'Take a placement test.'"
+        }
+      ]
+    },
+    "slotTypes": []
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "schemaVersion": "1.0",
+    "importType": "LEX",
+    "importFormat": "JSON"
+  },
+  "resource": {
+    "name": "GetDefinition",
+    "version": "32",
+    "fulfillmentActivity": {
+      "codeHook": {
+        "uri": "arn:aws:lambda:us-east-1:468412006895:function:getDefinition",
+        "messageVersion": "1.0"
+      },
+      "type": "CodeHook"
+    },
+    "sampleUtterances": [
+      "what is the meaning of {term}",
+      "tell me about {term}"
+    ],
+    "slots": [
+      {
+        "sampleUtterances": [],
+        "slotType": "AMAZON.BookSeries",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Required",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Which term?"
+            }
+          ],
+          "maxAttempts": 2
+        },
+        "priority": 1,
+        "name": "term"
+      }
+    ],
+    "slotTypes": []
+  }
+}

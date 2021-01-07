@@ -1,0 +1,117 @@
+{
+  "metadata": {
+    "schemaVersion": "1.0",
+    "importType": "LEX",
+    "importFormat": "JSON"
+  },
+  "resource": {
+    "name": "Greeting",
+    "version": "30",
+    "fulfillmentActivity": {
+      "codeHook": {
+        "uri": "arn:aws:lambda:us-east-1:468412006895:function:newUser",
+        "messageVersion": "1.0"
+      },
+      "type": "CodeHook"
+    },
+    "sampleUtterances": [
+      "I am a new user",
+      "new user",
+      "Register an account",
+      "sign up",
+      "I want to create an account",
+      "create an account"
+    ],
+    "slots": [
+      {
+        "sampleUtterances": [],
+        "slotType": "GreetingsType",
+        "slotTypeVersion": "1",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Required",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Hey here! I am your online assistant."
+            }
+          ],
+          "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"title\":\"Have you come to register before?\",\"buttons\":[{\"text\":\"Yes\",\"value\":\"yes\"},{\"text\":\"No\",\"value\":\"no\"}]}]}",
+          "maxAttempts": 2
+        },
+        "priority": 2,
+        "name": "greetingsIntent"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "AMAZON.FOUR_DIGIT_NUMBER",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Optional",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Please enter the verification code which has been sent to your email address if you would like to have further service:"
+            }
+          ],
+          "maxAttempts": 2
+        },
+        "priority": 5,
+        "name": "password"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "AMAZON.EmailAddress",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Optional",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "And what is your email address?"
+            }
+          ],
+          "maxAttempts": 2
+        },
+        "priority": 4,
+        "name": "useremail"
+      },
+      {
+        "sampleUtterances": [
+          "My name is {username}",
+          "my name {username}"
+        ],
+        "slotType": "AMAZON.Person",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Optional",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Could you tell me your name?"
+            }
+          ],
+          "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\"}",
+          "maxAttempts": 2
+        },
+        "priority": 3,
+        "name": "username"
+      }
+    ],
+    "slotTypes": [
+      {
+        "name": "GreetingsType",
+        "version": "1",
+        "enumerationValues": [
+          {
+            "value": "no"
+          },
+          {
+            "value": "yes"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      }
+    ]
+  }
+}

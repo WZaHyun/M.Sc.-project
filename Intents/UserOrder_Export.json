@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "schemaVersion": "1.0",
+    "importType": "LEX",
+    "importFormat": "JSON"
+  },
+  "resource": {
+    "name": "UserOrder",
+    "version": "5",
+    "fulfillmentActivity": {
+      "codeHook": {
+        "uri": "arn:aws:lambda:us-east-1:468412006895:function:myOrder",
+        "messageVersion": "1.0"
+      },
+      "type": "CodeHook"
+    },
+    "sampleUtterances": [
+      "my order",
+      "booking list",
+      "order inquriy"
+    ],
+    "slots": [
+      {
+        "sampleUtterances": [],
+        "slotType": "AMAZON.FOUR_DIGIT_NUMBER",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Optional",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Please enter the verification code which has been sent to your email address:"
+            }
+          ],
+          "maxAttempts": 2
+        },
+        "priority": 2,
+        "name": "password"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "AMAZON.EmailAddress",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Required",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Please provide an email account:"
+            }
+          ],
+          "maxAttempts": 2
+        },
+        "priority": 1,
+        "name": "useremail"
+      }
+    ],
+    "slotTypes": []
+  }
+}

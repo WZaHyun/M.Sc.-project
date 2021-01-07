@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "schemaVersion": "1.0",
+    "importType": "LEX",
+    "importFormat": "JSON"
+  },
+  "resource": {
+    "name": "closeIntent",
+    "version": "8",
+    "fulfillmentActivity": {
+      "type": "ReturnIntent"
+    },
+    "sampleUtterances": [
+      "exit this dialog",
+      "stop this topic",
+      "Quit this talk",
+      "change topic"
+    ],
+    "slots": [],
+    "conclusionStatement": {
+      "messages": [
+        {
+          "groupNumber": 1,
+          "contentType": "PlainText",
+          "content": "What do you want to do next?"
+        },
+        {
+          "groupNumber": 1,
+          "contentType": "PlainText",
+          "content": "What can I help you?"
+        },
+        {
+          "groupNumber": 1,
+          "contentType": "PlainText",
+          "content": "Okay, anytime!"
+        }
+      ]
+    },
+    "slotTypes": []
+  }
+}

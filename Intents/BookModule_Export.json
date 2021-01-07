@@ -1,0 +1,149 @@
+{
+  "metadata": {
+    "schemaVersion": "1.0",
+    "importType": "LEX",
+    "importFormat": "JSON"
+  },
+  "resource": {
+    "name": "BookModule",
+    "version": "58",
+    "fulfillmentActivity": {
+      "codeHook": {
+        "uri": "arn:aws:lambda:us-east-1:468412006895:function:getModule",
+        "messageVersion": "1.0"
+      },
+      "type": "CodeHook"
+    },
+    "sampleUtterances": [
+      "I would like to book {modulename}",
+      "I would like to choose {modulename}",
+      "book {modulename}",
+      "attend {modulename}",
+      "join in {modulename}",
+      "I would like to  take {modulename}",
+      "book",
+      "module",
+      "book {modulename} in the level of {moduletype}",
+      "book {modulename} {moduletype}",
+      "i would like buy an online course",
+      "I would like to book a course",
+      "book course"
+    ],
+    "slots": [
+      {
+        "sampleUtterances": [],
+        "slotType": "ModuleName",
+        "slotTypeVersion": "2",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Optional",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Which module do you want to choose?"
+            }
+          ],
+          "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"subTitle\":\"Swipe left/right for more options.\",\"title\":\"Which module do you want to choose?\",\"buttons\":[{\"text\":\"Deep Learning\",\"value\":\"deep learning\"},{\"text\":\"Machine Learning\",\"value\":\"machine learning\"},{\"text\":\"Data Analysis\",\"value\":\"data analysis\"}]},{\"subTitle\":\"Swipe left/right for more options.\",\"title\":\"Which module do you want to choose?\",\"buttons\":[{\"text\":\"NLP\",\"value\":\"nlp\"}]}]}",
+          "maxAttempts": 2
+        },
+        "priority": 6,
+        "name": "modulename"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "ModuleType",
+        "slotTypeVersion": "2",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Optional",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "What level of course is it?"
+            }
+          ],
+          "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"title\":\"What level of course is it?\",\"buttons\":[{\"text\":\"Primer\",\"value\":\"primer\"},{\"text\":\"Advanced\",\"value\":\"advanced\"}]}]}",
+          "maxAttempts": 2
+        },
+        "priority": 7,
+        "name": "moduletype"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "AMAZON.FOUR_DIGIT_NUMBER",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Optional",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Please enter OTP code sent to your email address:"
+            }
+          ],
+          "maxAttempts": 2
+        },
+        "priority": 5,
+        "name": "password"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "AMAZON.EmailAddress",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Required",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Please provide an email account:"
+            }
+          ],
+          "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\"}",
+          "maxAttempts": 2
+        },
+        "priority": 3,
+        "name": "useremail"
+      }
+    ],
+    "slotTypes": [
+      {
+        "description": "Available module type",
+        "name": "ModuleType",
+        "version": "2",
+        "enumerationValues": [
+          {
+            "value": "test"
+          },
+          {
+            "value": "advanced"
+          },
+          {
+            "value": "primer"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      },
+      {
+        "name": "ModuleName",
+        "version": "2",
+        "enumerationValues": [
+          {
+            "value": "deep learning"
+          },
+          {
+            "value": "data analysis"
+          },
+          {
+            "value": "nlp"
+          },
+          {
+            "value": "test"
+          },
+          {
+            "value": "machine learning"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      }
+    ]
+  }
+}

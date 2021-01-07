@@ -1,1 +1,256 @@
-
+{
+  "metadata": {
+    "schemaVersion": "1.0",
+    "importType": "LEX",
+    "importFormat": "JSON"
+  },
+  "resource": {
+    "name": "AllocatedModule",
+    "version": "74",
+    "fulfillmentActivity": {
+      "codeHook": {
+        "uri": "arn:aws:lambda:us-east-1:468412006895:function:mytest",
+        "messageVersion": "1.0"
+      },
+      "type": "CodeHook"
+    },
+    "sampleUtterances": [
+      "I would like to have a test",
+      "placement test",
+      "quizzes",
+      "quiz",
+      "have a test"
+    ],
+    "slots": [
+      {
+        "sampleUtterances": [],
+        "slotType": "AMAZON.Book",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Optional",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Q8"
+            }
+          ],
+          "maxAttempts": 2
+        },
+        "priority": 9,
+        "name": "eighthA"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "AMAZON.Book",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Optional",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Q5"
+            }
+          ],
+          "maxAttempts": 2
+        },
+        "priority": 6,
+        "name": "fifthA"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "AMAZON.Book",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Optional",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Q1"
+            }
+          ],
+          "maxAttempts": 2
+        },
+        "priority": 2,
+        "name": "firstA"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "AMAZON.Book",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Optional",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Q4"
+            }
+          ],
+          "maxAttempts": 2
+        },
+        "priority": 5,
+        "name": "fourthA"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "ModuleName",
+        "slotTypeVersion": "2",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Required",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Which module?"
+            }
+          ],
+          "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"subTitle\":\"Swipe left/right for more options.\",\"title\":\"Part1: Which module?\",\"buttons\":[{\"text\":\"Deep Learning\",\"value\":\"deep learning\"},{\"text\":\"Machine Learning\",\"value\":\"machine learning\"},{\"text\":\"Data Analysis\",\"value\":\"data analysis\"}]},{\"subTitle\":\"Swipe left/right for more options.\",\"title\":\"Part1: Which module?\",\"buttons\":[{\"text\":\"NLP\",\"value\":\"nlp\"}]}]}",
+          "maxAttempts": 1
+        },
+        "priority": 1,
+        "name": "modulename"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "AMAZON.Book",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Optional",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Q9"
+            }
+          ],
+          "maxAttempts": 2
+        },
+        "priority": 10,
+        "name": "ninthA"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "AMAZON.Book",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Optional",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Q2"
+            }
+          ],
+          "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[]}",
+          "maxAttempts": 2
+        },
+        "priority": 3,
+        "name": "secondA"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "AMAZON.Book",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Optional",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Q7"
+            }
+          ],
+          "maxAttempts": 2
+        },
+        "priority": 8,
+        "name": "seventhA"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "AMAZON.Book",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Optional",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Q6"
+            }
+          ],
+          "maxAttempts": 2
+        },
+        "priority": 7,
+        "name": "sixthA"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "PlacementTest",
+        "slotTypeVersion": "2",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Optional",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Q10"
+            }
+          ],
+          "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[]}",
+          "maxAttempts": 2
+        },
+        "priority": 11,
+        "name": "tenthA"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "AMAZON.Book",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Optional",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Q3"
+            }
+          ],
+          "maxAttempts": 2
+        },
+        "priority": 4,
+        "name": "thirdA"
+      }
+    ],
+    "slotTypes": [
+      {
+        "name": "PlacementTest",
+        "version": "2",
+        "enumerationValues": [
+          {
+            "value": "Answer"
+          },
+          {
+            "value": "Question"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      },
+      {
+        "name": "ModuleName",
+        "version": "2",
+        "enumerationValues": [
+          {
+            "value": "deep learning"
+          },
+          {
+            "value": "data analysis"
+          },
+          {
+            "value": "nlp"
+          },
+          {
+            "value": "test"
+          },
+          {
+            "value": "machine learning"
+          }
+        ],
+        "valueSelectionStrategy": "ORIGINAL_VALUE"
+      }
+    ]
+  }
+}

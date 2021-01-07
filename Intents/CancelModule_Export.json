@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "schemaVersion": "1.0",
+    "importType": "LEX",
+    "importFormat": "JSON"
+  },
+  "resource": {
+    "name": "CancelModule",
+    "version": "7",
+    "fulfillmentActivity": {
+      "codeHook": {
+        "uri": "arn:aws:lambda:us-east-1:468412006895:function:getCancel",
+        "messageVersion": "1.0"
+      },
+      "type": "CodeHook"
+    },
+    "sampleUtterances": [
+      "cancel",
+      "cancel courses",
+      "cancel order",
+      "cancel my order",
+      "I would like to cancel my order",
+      "I want to apply for canceling my order"
+    ],
+    "slots": [
+      {
+        "sampleUtterances": [],
+        "slotType": "AMAZON.Organization",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Optional",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Please provide your order code:"
+            }
+          ],
+          "maxAttempts": 2
+        },
+        "priority": 4,
+        "name": "orderid"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "AMAZON.FOUR_DIGIT_NUMBER",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Optional",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Please provide your OTP code:"
+            }
+          ],
+          "maxAttempts": 2
+        },
+        "priority": 3,
+        "name": "password"
+      },
+      {
+        "sampleUtterances": [],
+        "slotType": "AMAZON.EmailAddress",
+        "obfuscationSetting": "NONE",
+        "slotConstraint": "Required",
+        "valueElicitationPrompt": {
+          "messages": [
+            {
+              "contentType": "PlainText",
+              "content": "Please provide your email address:"
+            }
+          ],
+          "maxAttempts": 2
+        },
+        "priority": 2,
+        "name": "useremail"
+      }
+    ],
+    "slotTypes": []
+  }
+}
